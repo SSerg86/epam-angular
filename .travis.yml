@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "10"
+before_install:
+  - npm install -g @angular/cli
+install: npm install
+branches:
+  only:
+    - master
+deploy:
+  provider: heroku
+  app: epam-ang
+  api_key:
+    secure: YAuUsmJbUXhTiCMG5H0Cz+oPMW8D59/TGLegC36hENfjailoxmtS+U7MRF875GCtSS615Gb08bKGG0kwUkPFQnWZHjvojBcFPTkD69dQ08JCE1sQbP9oilGlrgmIzndb81IDkU6LmozLylpGfy8L9KbCds5QVTn3s+/OPbWvi5e6V164qhFinyrdIh3iv2r6lcgwpeEHYN9Qhh6g19QkBlQFTsmM80bcWkvNskzkmqA2ZC0qTez7P7HyLjwP2JZ8i3fKGsVUBHzqudxpBb+t53FYp+wj9FcBlNpOgLeI07X0ggAu10ZGvKS8PaLWDdYcvsxlhaA6Wn+sFwt4o9RaBl1exs3GspIJ3GJ8M1gZAZfV8Cff7o/pyTNrIt84Surc7oV5EJ0V/hGxqokaiXI2qeFMGEOVC01eI7EL7P7PVK0ht7ivH9ON6+q5AcdezL1crGaK0l9sO4gshUMXsjVl3ybIyCPMmu4jDTX5HawFNrNnRikjsykthl9aKVPOSZyZnOjPnSBgk8CZ3AkZa3QmaMKEQqp7pKlDrWs2oRz04YAxg2VEmWP3dXYq2Y2mi1T6bvpQsbMy+upJFz0ARnik+4IlPKuVRS4f72o54s3NVQQt8aB2vqWoikv9LkMrJFYVyOYiPkZecVu5JGu9nIjZQYgaD4hh/u8sE7xehLnJ1aw=
