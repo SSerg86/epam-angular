@@ -1,0 +1,26 @@
+.games-group {
+  display: flex;
+}
+.games-card {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 2;
+}
+
+.search-group {
+  display: flex;
+  flex: 1;
+}
+
+.filter-group {
+  border-left: 1px solid grey;
+  margin-left: 10px;
+  padding-left: 15px;
+}
+
+.scroll {
+  text-align: center;
+}
+.check {
+  margin-top: 20px;
+}

@@ -1,18 +1,24 @@
 <nav class="navbar">
   <div class="logo">
-    <a href="#"
+    <a [routerLink]="['/user', 'games']"
       ><img src="../../../../../assets/steam-seeklogo.com 1.png" alt=""
     /></a>
   </div>
   <ul>
-    <li class="active">
-      <a href="#">Games</a>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['/user', 'games']">Games</a>
     </li>
-    <li><a href="#">Library</a></li>
-    <li><a href="#">Friends</a></li>
-    <li><a href="#">Profile</a></li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/user', 'library']">Library</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/user', 'friends']">Friends</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/user', 'profile']">Profile</a>
+    </li>
   </ul>
 </nav>
-<div class="layout-container">
+<div class="container">
   <router-outlet></router-outlet>
 </div>

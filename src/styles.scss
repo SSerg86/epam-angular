@@ -41,7 +41,7 @@ img {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
@@ -211,7 +211,7 @@ img {
 .form-control {
   display: block;
   color: #888;
-  margin-bottom: 0.8rem;
+  // margin-bottom: 0.8rem;
 
   &.invalid {
     color: var(--primary-color);
@@ -221,7 +221,7 @@ img {
   }
 
   .validation {
-    color: var(--primary-color);
+    color: var(--danger-color);
   }
 }
 
@@ -295,8 +295,6 @@ table th {
   }
 }
 
-.layout-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.main {
+  margin-top: 20vh;
 }

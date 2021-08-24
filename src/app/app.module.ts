@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { EntryLayoutComponent } from './shared/components/entry-layout/entry-layout.component';
 
 import { LoginPageComponent } from './login-page/login-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, EntryLayoutComponent, LoginPageComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

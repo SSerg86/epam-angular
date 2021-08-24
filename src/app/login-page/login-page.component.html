@@ -1,15 +1,54 @@
-<div class="login">
+<form class="login" [formGroup]="form" (ngSubmit)="submit()">
   <h2>Sign In</h2>
-
-  <form action="/action_page.php" method="post">
-    <div class="container">
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Email" name="email" required />
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Password" name="psw" required />
-
-      <button type="submit">Login</button>
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid: form.get('email')!.touched && form.get('email')!.invalid
+    }"
+  >
+    <label for="email"><b>Email:</b></label>
+    <input
+      id="email"
+      type="text"
+      placeholder="Email"
+      name="email"
+      formControlName="email"
+    />
+    <div
+      *ngIf="form.get('email')!.touched && form.get('email')!.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('email')!.errors!.required"> Enter email </small>
+      <small *ngIf="form.get('email')!.errors!.email"> Invalid email </small>
     </div>
-  </form>
-</div>
+  </div>
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid: form.get('password')!.touched && form.get('password')!.invalid
+    }"
+  >
+    <label for="psw"><b>Password:</b></label>
+    <input
+      id="password"
+      type="password"
+      placeholder="Password"
+      name="psw"
+      formControlName="password"
+    />
+    <div
+      *ngIf="form.get('password')!.touched && form.get('password')!.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('password')!.errors!.required">
+        Enter password
+      </small>
+      <small *ngIf="form.get('password')!.errors!.minlength">
+        Password length should be at least
+        {{ form.get("password")!.errors!.minlength.requiredLength }}
+      </small>
+    </div>
+  </div>
+
+  <button class="btn" type="submit" [disabled]="form.invalid">Login</button>
+</form>
