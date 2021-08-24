@@ -17,6 +17,9 @@
     <li routerLinkActive="active">
       <a [routerLink]="['/user', 'profile']">Profile</a>
     </li>
+    <li routerLinkActive="active">
+      <a href="#" (click)="logout($event)">Logout</a>
+    </li>
   </ul>
 </nav>
 <div class="container">

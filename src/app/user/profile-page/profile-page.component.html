@@ -1,15 +1,32 @@
-<form method="post" class="login form-control">
+<form
+  method="post"
+  class="login form-control"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+>
   <h2>Profile</h2>
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Username" name="uname" required />
+    <input
+      type="text"
+      placeholder="Username"
+      name="uname"
+      formControlName="name"
+    />
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required />
+    <input
+      type="text"
+      placeholder="Email"
+      name="email"
+      formControlName="email"
+    />
 
     <label for="age"><b>Age</b></label>
-    <input type="text" placeholder="Age" name="age" required />
+    <input type="text" placeholder="Age" name="age" formControlName="age" />
 
-    <button type="submit">Save</button>
+    <button class="btn" type="submit" [disabled]="form.invalid || submited">
+      Save
+    </button>
   </div>
 </form>
