@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +8,13 @@ import { EntryLayoutComponent } from './shared/components/entry-layout/entry-lay
 
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './shared/auth.interceptor';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor,
+};
 
 @NgModule({
   declarations: [AppComponent, EntryLayoutComponent, LoginPageComponent],
@@ -18,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
