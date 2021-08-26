@@ -7,13 +7,11 @@ import { FriendsPageComponent } from './friends-page/friends-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { LibraryPageComponent } from './library-page/library-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { GameComponent } from './shared/components/game/game.component';
 import { UserLayoutComponent } from './shared/components/user-layout/user-layout.component';
 
 @NgModule({
   declarations: [
     UserLayoutComponent,
-    GameComponent,
     GamesPageComponent,
     LibraryPageComponent,
     GamesPageComponent,

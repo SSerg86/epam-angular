@@ -19,13 +19,33 @@
       </button>
     </div>
     <h3>Featured Games</h3>
-    <div class="games-group">
-      <div class="games-card">
-        <app-game></app-game>
-        <app-game></app-game>
-        <app-game></app-game>
-        <app-game></app-game>
+    <div class="games-group" *ngIf="games.length; else loading">
+      <div class="games-cards">
+        <div class="games-card" *ngFor="let game of games">
+          <div class="card-game">
+            <div
+              class="card__game-top"
+              [ngStyle]="{
+                'background-image': 'url(' + game.image + ') '
+              }"
+            >
+              <h5 class="card__game-name">{{ game.name | titlecase }}</h5>
+              <p class="card__game-price">
+                {{ game.price }} {{ game.currancy }}
+              </p>
+            </div>
+            <div class="card__game-bottom">
+              <p class="card__game-text">
+                {{ game.description }}
+              </p>
+              <button type="button" class="btn btn-primary">
+                Add to Library
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="filter-group">
         <p><b>Filter by price</b></p>
         <div class="scroll">
@@ -75,3 +95,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="loader"></div>
+</ng-template>
