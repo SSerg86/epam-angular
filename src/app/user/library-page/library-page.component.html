@@ -3,4 +3,28 @@
     <h2>Library</h2>
     <div class="library-group"></div>
   </div>
+
+  <div class="games-cards">
+    <div class="games-card" *ngFor="let game of games">
+      <div class="card-game">
+        <div
+          class="card__game-top"
+          [ngStyle]="{
+            'background-image': 'url(' + game.image + ') '
+          }"
+        >
+          <h5 class="card__game-name">{{ game.name | titlecase }}</h5>
+        </div>
+        <div class="card__game-bottom">
+          <p class="card__game-text">
+            {{ game.description }}
+          </p>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary">Download</button>
+            <button type="button" class="btn btn-white">Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

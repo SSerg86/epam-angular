@@ -12,10 +12,15 @@ export interface FbAuthResponse {
 }
 
 export interface Game {
-  id: number;
+  id?: string;
   name: string;
   price: number;
   description: string;
   image: string;
   currancy: string;
+  date?: Date;
+}
+
+export interface FbCreateResponse {
+  name: string;
 }

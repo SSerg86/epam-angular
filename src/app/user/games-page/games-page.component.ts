@@ -27,4 +27,11 @@ export class GamesPageComponent implements OnInit, OnDestroy {
       this.gameSubscr.unsubscribe();
     }
   }
+
+  addToLibrary(game: Game) {
+    this.gamesService.addToLibrary(game).subscribe(() => {
+      return this.games.push(game);
+    });
+    window.alert('Your product has been added to the cart!');
+  }
 }

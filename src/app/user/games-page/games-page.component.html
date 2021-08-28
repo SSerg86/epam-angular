@@ -38,7 +38,11 @@
               <p class="card__game-text">
                 {{ game.description }}
               </p>
-              <button type="button" class="btn btn-primary">
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="addToLibrary(game)"
+              >
                 Add to Library
               </button>
             </div>
@@ -49,7 +53,13 @@
       <div class="filter-group">
         <p><b>Filter by price</b></p>
         <div class="scroll">
-          <input type="range" class="form-range" id="customRange1" />
+          <input
+            type="range"
+            class="form-range"
+            id="customRange1"
+            min="1"
+            max="5000"
+          />
           <label for="customRange1" class="form-label">Any Price</label>
         </div>
 

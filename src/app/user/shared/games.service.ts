@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Game } from 'src/app/shared/interfaces';
+import { FbCreateResponse, Game } from 'src/app/shared/interfaces';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class GamesService {
+  games: Game[] = [];
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Game[]> {
@@ -17,5 +18,34 @@ export class GamesService {
         }));
       })
     );
+  }
+
+  getLibrary(): Observable<Game[]> {
+    return this.http.get(`${environment.fbDbUrl}/library.json`).pipe(
+      map((response: { [key: string]: any }) => {
+        return Object.keys(response).map((key) => ({
+          ...response[key],
+        }));
+      })
+    );
+  }
+
+  addToLibrary(game: Game): Observable<Game> {
+    return this.http
+      .post<Game>(`${environment.fbDbUrl}/library.json`, game)
+      .pipe(
+        map((response: FbCreateResponse) => {
+          console.log(response.name);
+          return {
+            ...game,
+            id: response.name,
+            date: new Date(),
+          };
+        })
+      );
+  }
+
+  getGames() {
+    return this.games;
   }
 }
