@@ -45,27 +45,28 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+  min-height: 100vh;
 }
 
-.text-primary {
-  color: var(--primary-color);
-}
+// .text-primary {
+//   color: var(--primary-color);
+// }
 
-.text-dark {
-  color: var(--dark-color);
-}
+// .text-dark {
+//   color: var(--dark-color);
+// }
 
-.text-success {
-  color: var(--success-color);
-}
+// .text-success {
+//   color: var(--success-color);
+// }
 
-.text-danger {
-  color: var(--danger-color);
-}
+// .text-danger {
+//   color: var(--danger-color);
+// }
 
-.text-center {
-  text-align: center;
-}
+// .text-center {
+//   text-align: center;
+// }
 
 .card {
   padding: 1rem;
@@ -83,13 +84,13 @@ img {
   }
 }
 
-.list {
-  margin: 0.5rem 0;
+// .list {
+//   margin: 0.5rem 0;
 
-  li {
-    padding-bottom: 0.3rem;
-  }
-}
+//   li {
+//     padding-bottom: 0.3rem;
+//   }
+// }
 
 .btn {
   display: inline-block;
@@ -211,6 +212,7 @@ img {
 .form-control {
   display: block;
   color: #888;
+  padding: 0;
   // margin-bottom: 0.8rem;
 
   &.invalid {
@@ -231,11 +233,14 @@ input[type="password"],
 input[type="date"],
 select,
 textarea {
-  display: block;
+  display: inline-block;
   width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 8px 0;
 }
 
 input[type="submit"],

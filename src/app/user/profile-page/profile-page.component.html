@@ -5,28 +5,22 @@
   (ngSubmit)="submit()"
 >
   <h2>Profile</h2>
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input
-      type="text"
-      placeholder="Username"
-      name="uname"
-      formControlName="name"
-    />
 
-    <label for="email"><b>Email</b></label>
-    <input
-      type="text"
-      placeholder="Email"
-      name="email"
-      formControlName="email"
-    />
+  <label for="uname"><b>Username</b></label>
+  <input
+    type="text"
+    placeholder="Username"
+    name="uname"
+    formControlName="name"
+  />
 
-    <label for="age"><b>Age</b></label>
-    <input type="text" placeholder="Age" name="age" formControlName="age" />
+  <label for="email"><b>Email</b></label>
+  <input type="text" placeholder="Email" name="email" formControlName="email" />
 
-    <button class="btn" type="submit" [disabled]="form.invalid || submited">
-      Save
-    </button>
-  </div>
+  <label for="age"><b>Age</b></label>
+  <input type="text" placeholder="Age" name="age" formControlName="age" />
+
+  <button class="btn" type="submit" [disabled]="form.invalid || submited">
+    Save
+  </button>
 </form>

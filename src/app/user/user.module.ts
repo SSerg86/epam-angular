@@ -8,6 +8,9 @@ import { GamesPageComponent } from './games-page/games-page.component';
 import { LibraryPageComponent } from './library-page/library-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { UserLayoutComponent } from './shared/components/user-layout/user-layout.component';
+import { SearchPipe } from './shared/pipes/search.pipe';
+import { SerachByPricePipe } from './shared/pipes/searchbyprice.pipe';
+import { MyfriendsComponent } from './myfriends/myfriends/myfriends.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { UserLayoutComponent } from './shared/components/user-layout/user-layout
     GamesPageComponent,
     FriendsPageComponent,
     ProfilePageComponent,
+    SearchPipe,
+    SerachByPricePipe,
+    MyfriendsComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +56,11 @@ import { UserLayoutComponent } from './shared/components/user-layout/user-layout
           {
             path: 'profile',
             component: ProfilePageComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: 'myfriends',
+            component: MyfriendsComponent,
             canActivate: [AuthGuard],
           },
         ],

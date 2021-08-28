@@ -1,1 +1,15 @@
-//
+.form-label {
+  width: 95px;
+}
+
+@media (max-width: 1199px) {
+  .games-cards {
+    justify-content: center;
+  }
+}
+@media (max-width: 799px) {
+  .games-group {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

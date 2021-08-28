@@ -24,3 +24,8 @@ export interface Game {
 export interface FbCreateResponse {
   name: string;
 }
+
+export interface Friend {
+  name: string;
+  isFriend: boolean;
+}

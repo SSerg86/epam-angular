@@ -11,20 +11,14 @@
         aria-describedby="button-addon2"
       />
     </div>
-    <div class="friends-link">
-      <h4>Find New Friend</h4>
-      <a class="link" [routerLink]="['/user', 'myfriends']">My friends</a>
-    </div>
-    <div class="friends-group" *ngIf="friends.length; else loading">
+    <h4>My Friends</h4>
+    <!-- <div class="friends-group" *ngIf="friends.length">
       <div class="friends-list">
         <div class="friend" *ngFor="let friend of friends">
-          <p>{{ friend.name }}</p>
+          <p>{{ friend.isFriend }}</p>
           <button class="btn">Add Friend</button>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
-<ng-template #loading>
-  <div class="loader"></div>
-</ng-template>

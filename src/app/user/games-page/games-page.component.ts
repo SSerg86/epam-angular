@@ -11,6 +11,8 @@ import { GamesService } from '../shared/games.service';
 export class GamesPageComponent implements OnInit, OnDestroy {
   games: Game[] = [];
   gameSubscr: Subscription;
+  searchGameByName: string;
+  searchGameByPrice: string;
 
   constructor(private gamesService: GamesService) {}
 
@@ -32,6 +34,6 @@ export class GamesPageComponent implements OnInit, OnDestroy {
     this.gamesService.addToLibrary(game).subscribe(() => {
       return this.games.push(game);
     });
-    window.alert('Your product has been added to the cart!');
+    window.alert('Game has been added to the library!');
   }
 }
