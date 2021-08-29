@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class FriendsService {
   friends: Friend[];
-  myFriends: Friend[];
 
   constructor(private http: HttpClient) {}
 

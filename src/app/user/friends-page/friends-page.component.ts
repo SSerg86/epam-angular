@@ -15,13 +15,14 @@ export class FriendsPageComponent implements OnInit {
   constructor(private friendsService: FriendsService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.friendSubscr = this.friendsService
-        .getFriends()
-        .subscribe((friends) => {
-          this.friends = friends;
-        });
-    }, 500);
+    this.friendSubscr = this.friendsService
+      .getFriends()
+      .subscribe((friends) => {
+        this.friends = friends;
+
+        let newArr = this.friends.filter((friend) => friend.isFriend == true);
+        console.log(newArr);
+      });
   }
 
   ngOnDestroy() {

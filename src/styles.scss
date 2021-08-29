@@ -48,9 +48,9 @@ img {
   min-height: 100vh;
 }
 
-// .text-primary {
-//   color: var(--primary-color);
-// }
+.text-primary {
+  color: var(--primary-color);
+}
 
 // .text-dark {
 //   color: var(--dark-color);
@@ -250,13 +250,15 @@ button {
 
 .navbar {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   padding: 0.7rem 2rem;
-  z-index: 1;
+  position: sticky;
+  z-index: 50;
+  background-color: white;
   width: 100%;
-  opacity: 0.9;
   margin-bottom: 1rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+  top: 0px;
 
   &.main {
     justify-content: center;
@@ -359,6 +361,35 @@ button {
 
 .card__game-bottom button {
   width: 100%;
+}
+
+.friend {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 25%);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  p {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+}
+
+.friends-group {
+  margin-top: 20px;
+}
+
+.friends-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .link {
+    margin-right: 40px;
+  }
 }
 .loader,
 .loader:after {
