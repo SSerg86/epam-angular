@@ -28,4 +28,5 @@ export interface FbCreateResponse {
 export interface Friend {
   name: string;
   isFriend: boolean;
+  id: string;
 }

@@ -9,8 +9,9 @@ import { LibraryPageComponent } from './library-page/library-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { UserLayoutComponent } from './shared/components/user-layout/user-layout.component';
 import { SearchPipe } from './shared/pipes/search.pipe';
-import { SerachByPricePipe } from './shared/pipes/searchbyprice.pipe';
+import { SearchByPricePipe } from './shared/pipes/searchbyprice.pipe';
 import { MyfriendsComponent } from './myfriends/myfriends/myfriends.component';
+import { SearchfriendPipe } from './shared/pipes/searchfriend.pipe';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { MyfriendsComponent } from './myfriends/myfriends/myfriends.component';
     FriendsPageComponent,
     ProfilePageComponent,
     SearchPipe,
-    SerachByPricePipe,
+    SearchByPricePipe,
     MyfriendsComponent,
+    SearchfriendPipe,
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,7 @@
         placeholder="Search Friends"
         aria-label="Search Friends"
         aria-describedby="button-addon2"
+        [(ngModel)]="searchFriend"
       />
     </div>
     <div class="friends-link">
@@ -17,9 +18,25 @@
     </div>
     <div class="friends-group" *ngIf="friends.length; else loading">
       <div class="friends-list">
-        <div class="friend" *ngFor="let friend of friends">
-          <p>{{ friend.name }}</p>
-          <button class="btn btn-primary">Add Friend</button>
+        <div
+          class="friend"
+          *ngFor="let friend of friends | searchfriend: searchFriend"
+          [ngSwitch]="friend.isFriend"
+        >
+          <div>
+            <p>{{ friend.name }}</p>
+            <ng-template ngSwitchCase="true">
+              <span class="text-primary">My Friend</span>
+            </ng-template>
+          </div>
+          <ng-template ngSwitchCase="true">
+            <button class="btn btn-primary" disabled>Add Friend</button>
+          </ng-template>
+          <ng-template ngSwitchCase="false">
+            <button class="btn btn-primary" (click)="addFriend(friend)">
+              Add Friend
+            </button>
+          </ng-template>
         </div>
       </div>
     </div>

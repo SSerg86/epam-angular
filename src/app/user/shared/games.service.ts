@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class GamesService {
-  games: Game[] = [];
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Game[]> {
@@ -35,7 +34,6 @@ export class GamesService {
       .post<Game>(`${environment.fbDbUrl}/library.json`, game)
       .pipe(
         map((response: FbCreateResponse) => {
-          console.log(response.name);
           return {
             ...game,
             id: response.name,
@@ -43,9 +41,5 @@ export class GamesService {
           };
         })
       );
-  }
-
-  getGames() {
-    return this.games;
   }
 }

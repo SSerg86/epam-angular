@@ -11,6 +11,7 @@ import { FriendsService } from '../shared/friends.service';
 export class FriendsPageComponent implements OnInit {
   friends: Friend[] = [];
   friendSubscr: Subscription;
+  searchFriend: string;
 
   constructor(private friendsService: FriendsService) {}
 
@@ -19,9 +20,6 @@ export class FriendsPageComponent implements OnInit {
       .getFriends()
       .subscribe((friends) => {
         this.friends = friends;
-
-        let newArr = this.friends.filter((friend) => friend.isFriend == true);
-        console.log(newArr);
       });
   }
 
@@ -29,5 +27,9 @@ export class FriendsPageComponent implements OnInit {
     if (this.friendSubscr) {
       this.friendSubscr.unsubscribe();
     }
+  }
+
+  addFriend(friend: Friend) {
+    window.alert('Your request has been sent!');
   }
 }

@@ -9,24 +9,25 @@
         placeholder="Search Friends"
         aria-label="Search Friends"
         aria-describedby="button-addon2"
+        [(ngModel)]="searchFriend"
       />
     </div>
     <div class="friends-link">
       <h4>My Friends</h4>
       <a class="link" [routerLink]="['/user', 'friends']">Friends Search</a>
     </div>
-    <div class="friends-group" *ngIf="friends.length">
+    <div class="friends-group" *ngIf="myFriends.length">
       <div
         class="friends-list"
-        *ngFor="let friend of friends"
+        *ngFor="let friend of myFriends | searchfriend: searchFriend"
         [ngSwitch]="friend.isFriend"
       >
-        <ng-template ngSwitchCase="true">
-          <div class="friend">
-            <p>{{ friend.name }}</p>
-            <button class="btn btn-danger">Remove Friend</button>
-          </div>
-        </ng-template>
+        <div class="friend">
+          <p>{{ friend.name }}</p>
+          <button class="btn btn-danger" (click)="remove(friend.id)">
+            Remove Friend
+          </button>
+        </div>
       </div>
     </div>
   </div>

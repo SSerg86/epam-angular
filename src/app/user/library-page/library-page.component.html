@@ -20,8 +20,16 @@
             {{ game.description }}
           </p>
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary">Download</button>
-            <button type="button" class="btn btn-white">Share</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="isDownload(game)"
+            >
+              Download
+            </button>
+            <button type="button" class="btn btn-white" (click)="isShare(game)">
+              Share
+            </button>
           </div>
         </div>
       </div>

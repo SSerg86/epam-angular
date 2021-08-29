@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Game } from 'src/app/shared/interfaces';
 import { GamesService } from '../shared/games.service';
 
 @Component({
@@ -8,22 +9,28 @@ import { GamesService } from '../shared/games.service';
   styleUrls: ['./library-page.component.scss'],
 })
 export class LibraryPageComponent implements OnInit {
-  games = this.gamesService.getGames();
+  games: Game[] = [];
   gameSubscr: Subscription;
 
   constructor(private gamesService: GamesService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.gameSubscr = this.gamesService.getLibrary().subscribe((games) => {
-        this.games = games;
-      });
-    }, 500);
+    this.gameSubscr = this.gamesService.getLibrary().subscribe((games) => {
+      this.games = games;
+    });
   }
 
   ngOnDestroy() {
     if (this.gameSubscr) {
       this.gameSubscr.unsubscribe();
     }
+  }
+
+  isDownload(game: Game) {
+    window.alert('Game is downloading!');
+  }
+
+  isShare(game: Game) {
+    window.alert('Link has been saved for sharing!');
   }
 }

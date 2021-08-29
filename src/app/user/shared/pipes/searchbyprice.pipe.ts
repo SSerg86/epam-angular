@@ -4,7 +4,7 @@ import { Game } from '../../../shared/interfaces';
 @Pipe({
   name: 'searchGamesByPrice',
 })
-export class SerachByPricePipe implements PipeTransform {
+export class SearchByPricePipe implements PipeTransform {
   transform(games: Game[], range = '0'): Game[] {
     let price = parseInt(range);
     if (price === 0) {

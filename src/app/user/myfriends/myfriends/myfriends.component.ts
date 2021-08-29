@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Friend } from 'src/app/shared/interfaces';
-import { FriendsService } from '../../shared/friends.service';
+
+import { MyfriendsService } from '../../shared/myfriends.service';
 
 @Component({
   selector: 'app-myfriends',
@@ -9,25 +10,38 @@ import { FriendsService } from '../../shared/friends.service';
   styleUrls: ['./myfriends.component.scss'],
 })
 export class MyfriendsComponent implements OnInit {
-  friends: Friend[] = [];
+  myFriends: Friend[] = [];
   friendSubscr: Subscription;
+  deleteSub: Subscription;
+  searchFriend: string;
 
-  constructor(private friendsService: FriendsService) {}
+  constructor(private friendsService: MyfriendsService) {}
 
   ngOnInit(): void {
     this.friendSubscr = this.friendsService
       .getFriends()
       .subscribe((friends) => {
-        this.friends = friends;
+        this.myFriends = friends;
 
-        let newArr = this.friends.filter((friend) => friend.isFriend == true);
+        let newArr = this.myFriends.filter((friend) => friend.isFriend == true);
         console.log(newArr);
       });
+  }
+
+  remove(id: string) {
+    this.deleteSub = this.friendsService.remove(id).subscribe(() => {
+      this.myFriends = this.myFriends.filter((friend) => friend.id !== id);
+    });
+    // update friends list
+    // this.friendsService.update({});
   }
 
   ngOnDestroy() {
     if (this.friendSubscr) {
       this.friendSubscr.unsubscribe();
+    }
+    if (this.deleteSub) {
+      this.deleteSub.unsubscribe();
     }
   }
 }
