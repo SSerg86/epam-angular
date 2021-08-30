@@ -49,26 +49,22 @@ export class GamesPageComponent implements OnInit, OnDestroy {
   }
 
   onCheckboxChange(event: any, value: string) {
-    if (value === 'action') {
-      if (event.target.checked) {
-        this.filterAction = value;
-      } else {
-        this.filterAction = '';
-      }
-    }
-    if (value === 'indie') {
-      if (event.target.checked) {
-        this.filterIndie = value;
-      } else {
-        this.filterIndie = '';
-      }
-    }
-    if (value === 'adventure') {
-      if (event.target.checked) {
-        this.filterAdventure = value;
-      } else {
-        this.filterAdventure = '';
-      }
+    switch (value) {
+      case 'action':
+        event.target.checked
+          ? (this.filterAction = value)
+          : (this.filterAction = '');
+        break;
+      case 'indie':
+        event.target.checked
+          ? (this.filterIndie = value)
+          : (this.filterIndie = '');
+        break;
+      case 'adventure':
+        event.target.checked
+          ? (this.filterAdventure = value)
+          : (this.filterAdventure = '');
+        break;
     }
   }
 }
