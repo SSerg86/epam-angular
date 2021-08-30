@@ -25,18 +25,7 @@ export class GamesPageComponent implements OnInit, OnDestroy {
   filterIndie: string;
   filterAdventure: string;
 
-  form: FormGroup;
-  Data: Array<any> = [
-    { name: 'Indie', value: 'indie' },
-    { name: 'Action', value: 'action' },
-    { name: 'Adventure', value: 'adventure' },
-  ];
-
-  constructor(private gamesService: GamesService, private fb: FormBuilder) {
-    this.form = this.fb.group({
-      checkArray: this.fb.array([], [Validators.required]),
-    });
-  }
+  constructor(private gamesService: GamesService) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -59,20 +48,27 @@ export class GamesPageComponent implements OnInit, OnDestroy {
     window.alert('Game has been added to the library!');
   }
 
-  onCheckboxChange(e: any) {
-    const checkArray: FormArray = this.form.get('checkArray') as FormArray;
-
-    if (e.target.checked) {
-      checkArray.push(new FormControl(e.target.value));
-    } else {
-      let i: number = 0;
-      checkArray.controls.forEach((item) => {
-        if (item.value == e.target.value) {
-          checkArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
+  onCheckboxChange(event: any, value: string) {
+    if (value === 'action') {
+      if (event.target.checked) {
+        this.filterAction = value;
+      } else {
+        this.filterAction = '';
+      }
+    }
+    if (value === 'indie') {
+      if (event.target.checked) {
+        this.filterIndie = value;
+      } else {
+        this.filterIndie = '';
+      }
+    }
+    if (value === 'adventure') {
+      if (event.target.checked) {
+        this.filterAdventure = value;
+      } else {
+        this.filterAdventure = '';
+      }
     }
   }
 }

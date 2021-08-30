@@ -12,6 +12,7 @@ import { SearchPipe } from './shared/pipes/search.pipe';
 import { SearchByPricePipe } from './shared/pipes/searchbyprice.pipe';
 import { MyfriendsComponent } from './myfriends/myfriends/myfriends.component';
 import { SearchfriendPipe } from './shared/pipes/searchfriend.pipe';
+import { SearchcheckboxPipe } from './shared/pipes/searchcheckbox.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SearchfriendPipe } from './shared/pipes/searchfriend.pipe';
     SearchByPricePipe,
     MyfriendsComponent,
     SearchfriendPipe,
+    SearchcheckboxPipe,
   ],
   imports: [
     CommonModule,

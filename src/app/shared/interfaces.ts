@@ -19,6 +19,7 @@ export interface Game {
   image: string;
   currancy: string;
   date?: Date;
+  genre: string;
 }
 
 export interface FbCreateResponse {
