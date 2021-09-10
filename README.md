@@ -1,6 +1,6 @@
-# EpamAng
+# Trianing Angular Project
 
-This is the training project for Epam Lab.
+This is the training project using Angular 12.
 
 # Description
 STEAM like SPA. The game platform, where user can choose any game, 
